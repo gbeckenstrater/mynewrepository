@@ -1,0 +1,77 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\graphicspath{ {./images/} }
+
+
+
+\def\studentname{Gordon Beckenstrater}
+\def\projecttitle{Comparisons of machine learning algorithms}
+\def\supervisorname{Dave Cohen}
+\def\degree{BSc (Hons) in Computer Science}
+\def\fullOrHalfUnit{Full Unit} % indicate if you are doing the project as a Full Unit or Half Unit
+
+\title{K-Nearest Neighbours}
+\author{Gordon Beckenstrater}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Introduction}
+
+The k-nearest neighbours algorithm is one of the most researched machine learning algorithms which falls under the supervised learning category and is often the first algorithm students learn when studying machine learning. This technique was one of the first to resolve the travelling salesman problem and is the basis behind a lot of more complex programming in machine learning. It is a widely recognised classification technique but can also be used for regression problems. 
+\newline\\
+K-nearest neighbours’ works through feature similarity i.e. finding the closest labelled data point. The knn classification technique at its foundation works in the following way, we provide it with an unlabelled feature vector (sample) which is put into the knn classifier (trained model) which then decides what label to provide the sample. Ultimately is classifies a new data point based on the labels of its neighbours.
+\newline\\
+The parameter k given to knn is the number of neighbours used to classify an unlabelled sample. One nearest neighbour only finds the closest labelled sample and classifies according to that, but three nearest neighbours will locate the three closest samples and take the majority classification of them. 
+
+\section*{How it works}
+
+\includegraphics[scale=1]{one}
+\newline
+Above is an example of the process that takes place for the one-nearest neighbour model, as shown in the plot there are two different classes that a data point can represent red or blue. When a test sample (star) is fed into the knn classifier it finds the closest labelled data-point to that sample and gives it the same label.
+
+\includegraphics[scale=1]{three}
+\newline
+Now we look at three-nearest neighbours model, where the test sample is plotted into the trained model and finds the closest three neighbours. The major difference between one nearest and three nearest is that now it needs to incorporate a majority vote system as there is more than one data-point to analyse. This means classifying the test sample as the same class as the majority. To put it simply, if there are two red points and one blue point nearest the test sample then it will be given the classification red.
+
+\subsection*{Pseudo-code}
+
+How the actual algorithm functions will be broken down into steps (pseudo-code):
+
+\begin{enumerate}
+	\item Value of k given
+	\item Iterate through every data point (row) computing the distance from the test sample to each row and storing it in an array
+	\item Sort the distances from smallest to biggest
+	\item Retrieve the first k rows from the sorted array
+	\item Find the majority vote of the first k rows
+	\item Return the predicted outcome of the class
+\end{enumerate} 
+\hfill \break
+In order to improve the classification accuracy it is important to pick an optimum value for k, this process is called parameter tuning and is a concept applied to many different types of algorithms.
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
